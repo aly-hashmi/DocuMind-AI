@@ -2,21 +2,21 @@
 
 > An AI-powered PDF Question Answering System built using **Retrieval-Augmented Generation (RAG)**, **ChromaDB**, **Ollama**, and **FastAPI**.
 
-DocuMind AI allows users to upload PDF documents, index them into a vector database, and ask natural language questions. The system retrieves the most relevant document context using semantic search and generates accurate responses using a local Large Language Model (LLM).
+DocuMind AI enables users to interact with PDF documents using natural language. The system extracts text from PDFs, converts it into semantic embeddings, stores them in a vector database, retrieves the most relevant context, and generates intelligent answers using a locally running Large Language Model (LLM).
 
 ---
 
 # 📸 Demo
 
-## Terminal Application
+## 🖥️ Terminal Application
 
-![Terminal Demo](assets/terminal.PNG)
+![Terminal Demo](assets/terminal.png)
 
 ---
 
-## FastAPI Swagger UI
+## 🌐 FastAPI Swagger UI
 
-![FastAPI Swagger UI](assets/fastAPI.PNG)
+![FastAPI Swagger UI](assets/fastAPI.png)
 
 ---
 
@@ -24,14 +24,14 @@ DocuMind AI allows users to upload PDF documents, index them into a vector datab
 
 - 📄 PDF text extraction
 - ✂️ Automatic text chunking
-- 🧠 Semantic embeddings using Nomic Embed
+- 🧠 Semantic embeddings using Nomic Embed Text
 - 🗂️ Vector storage with ChromaDB
-- 🔍 Similarity search for relevant context
-- 🤖 AI-generated answers using Qwen (Ollama)
-- 💬 Multi-turn conversational memory
-- 🌐 REST API built with FastAPI
-- 🖥️ Terminal-based chatbot interface
-- 📚 Supports indexing multiple PDF documents
+- 🔍 Semantic similarity search
+- 🤖 AI-generated answers using Qwen 2.5 (Ollama)
+- 💬 Conversation memory
+- 🌐 FastAPI backend with Swagger documentation
+- 🖥️ Interactive terminal chatbot
+- 📚 Support for indexing multiple PDF documents
 
 ---
 
@@ -59,7 +59,7 @@ DocuMind AI allows users to upload PDF documents, index them into a vector datab
             Retrieved PDF Context
                      │
                      ▼
-           Qwen LLM (via Ollama)
+           Qwen 2.5 LLM (Ollama)
                      │
                      ▼
               AI Generated Answer
@@ -71,11 +71,11 @@ DocuMind AI allows users to upload PDF documents, index them into a vector datab
 
 | Category | Technology |
 |----------|------------|
-| Language | Python |
-| LLM | Qwen 2.5 (Ollama) |
+| Programming Language | Python |
+| Large Language Model | Qwen 2.5 (Ollama) |
 | Embedding Model | Nomic Embed Text |
 | Vector Database | ChromaDB |
-| Backend | FastAPI |
+| Backend Framework | FastAPI |
 | API Server | Uvicorn |
 | PDF Processing | PyPDF |
 | Similarity Search | Scikit-learn (Cosine Similarity) |
@@ -89,17 +89,17 @@ DocuMind-AI/
 
 ├── api.py                 # FastAPI backend
 ├── app.py                 # Terminal chatbot
-├── rag_engine.py          # RAG workflow
+├── rag_engine.py          # Main RAG workflow
 ├── database.py            # ChromaDB operations
 ├── embeddings.py          # Embedding generation
-├── llm.py                 # Ollama LLM interaction
-├── pdf_processor.py       # PDF loading & chunking
+├── llm.py                 # Ollama interaction
+├── pdf_processor.py       # PDF extraction & chunking
 │
 ├── Data/
 │
 ├── assets/
-│   ├── terminal.PNG
-│   └── fastAPI.PNG
+│   ├── terminal.png
+│   └── fastAPI.png
 │
 ├── README.md
 ├── requirements.txt
@@ -112,13 +112,13 @@ DocuMind-AI/
 
 1. Select a PDF document.
 2. Extract text from the PDF.
-3. Split the document into manageable chunks.
-4. Generate embeddings for each chunk.
-5. Store embeddings inside ChromaDB.
+3. Split the document into smaller chunks.
+4. Generate vector embeddings for every chunk.
+5. Store embeddings in ChromaDB.
 6. Convert the user's question into an embedding.
-7. Retrieve the most relevant chunks using semantic search.
-8. Send the retrieved context and question to the LLM.
-9. Generate an accurate answer grounded in the document.
+7. Retrieve the most relevant document chunks.
+8. Send the retrieved context to the LLM.
+9. Generate a grounded answer based on the document.
 
 ---
 
@@ -131,7 +131,7 @@ git clone https://github.com/aly-hashmi/DocuMind-AI.git
 cd DocuMind-AI
 ```
 
-Install the required packages:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -153,13 +153,15 @@ Pull the language model:
 ollama pull qwen2.5:1.5b
 ```
 
-Ensure the Ollama service is running before starting the application.
+Start the Ollama service before running the application.
 
 ---
 
 # ▶️ Running the Application
 
-### Terminal Version
+## Terminal Version
+
+Run:
 
 ```bash
 python app.py
@@ -169,13 +171,13 @@ The application allows you to:
 
 - Select a PDF document
 - Ask questions about its contents
-- Receive AI-generated responses grounded in the document
+- Receive AI-generated responses based on the document
 
 ---
 
-### FastAPI Backend
+## FastAPI Backend
 
-Start the server:
+Start the API server:
 
 ```bash
 uvicorn api:app --reload
@@ -183,7 +185,7 @@ uvicorn api:app --reload
 
 Open the interactive API documentation:
 
-```
+```text
 http://127.0.0.1:8000/docs
 ```
 
@@ -192,23 +194,23 @@ http://127.0.0.1:8000/docs
 # 💡 Example Questions
 
 - What is Machine Learning?
-- Summarize Chapter 3.
-- Explain supervised learning.
-- List the key concepts discussed.
-- What are the advantages of AI?
+- Explain Artificial Intelligence.
+- Summarize this chapter.
+- List the important concepts.
+- What are the advantages of deep learning?
 
 ---
 
 # 📈 Future Improvements
 
-- Web frontend (React/Next.js)
-- Drag-and-drop PDF uploads
-- Multi-document chat sessions
-- User authentication
-- Persistent chat history
-- Hybrid search (keyword + semantic)
-- Streaming LLM responses
-- Cloud deployment (Docker/AWS)
+- 🌐 React / Next.js frontend
+- 📤 Drag-and-drop PDF uploads
+- 📑 Multi-document conversations
+- 🔐 User authentication
+- 💾 Persistent chat history
+- ⚡ Streaming LLM responses
+- ☁️ Docker & cloud deployment
+- 🔎 Hybrid keyword + semantic search
 
 ---
 
@@ -218,11 +220,12 @@ This project demonstrates practical experience with:
 
 - Retrieval-Augmented Generation (RAG)
 - Large Language Models (LLMs)
-- Semantic Search
 - Vector Databases
+- Semantic Search
 - FastAPI Development
 - REST API Design
 - Local AI Deployment
+- PDF Processing
 - Document Intelligence
 
 ---
@@ -231,10 +234,12 @@ This project demonstrates practical experience with:
 
 **Aly Hashmi**
 
-Computer Science Student | AI & Python Enthusiast
+Computer Science Student | Python & AI Enthusiast
 
-GitHub: https://github.com/aly-hashmi
+- GitHub: https://github.com/aly-hashmi
 
 ---
 
-## ⭐ If you found this project interesting, consider giving it a star!
+## ⭐ Support
+
+If you found this project interesting or helpful, consider giving it a **⭐ Star** on GitHub.
